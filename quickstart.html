@@ -1,0 +1,546 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>FlowBoard Quick Start Guide</title>
+    <link rel="icon" type="image/png" href="favicon.png">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&family=Fira+Code:wght@400;500&display=swap" rel="stylesheet">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+            background: #0d0d0d;
+            color: #c0c0c0;
+            line-height: 1.8;
+            font-size: 1rem;
+        }
+
+        /* Top Banner */
+        .top-banner {
+            background: #f5f5f5;
+            padding: 16px 40px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .top-banner .logo {
+            font-size: 1.25rem;
+            font-weight: 400;
+            color: #1a1a1a;
+            text-decoration: none;
+            letter-spacing: -0.02em;
+        }
+
+        .top-banner .project-title {
+            font-size: 0.8rem;
+            letter-spacing: 0.12em;
+            text-transform: uppercase;
+            color: #606060;
+        }
+
+        .container {
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 60px 40px 100px 40px;
+        }
+
+        /* Header */
+        header {
+            margin-bottom: 60px;
+            padding-bottom: 40px;
+            border-bottom: 1px solid #2a2a2a;
+        }
+
+        .back-link {
+            display: inline-block;
+            color: #7dd3c0;
+            text-decoration: none;
+            font-size: 0.85rem;
+            margin-bottom: 24px;
+        }
+
+        .back-link:hover {
+            text-decoration: underline;
+        }
+
+        h1 {
+            font-size: 2.5rem;
+            font-weight: 400;
+            color: #e8e8e8;
+            margin-bottom: 12px;
+        }
+
+        .subtitle {
+            font-size: 1.1rem;
+            color: #808080;
+        }
+
+        /* Content */
+        h2 {
+            font-size: 1.5rem;
+            font-weight: 500;
+            color: #e8e8e8;
+            margin-top: 60px;
+            margin-bottom: 20px;
+            padding-bottom: 12px;
+            border-bottom: 1px solid #2a2a2a;
+        }
+
+        h3 {
+            font-size: 1.1rem;
+            font-weight: 500;
+            color: #d0d0d0;
+            margin-top: 36px;
+            margin-bottom: 16px;
+        }
+
+        h4 {
+            font-size: 1rem;
+            font-weight: 500;
+            color: #b0b0b0;
+            margin-top: 28px;
+            margin-bottom: 12px;
+        }
+
+        p {
+            margin-bottom: 16px;
+        }
+
+        a {
+            color: #7dd3c0;
+        }
+
+        strong {
+            color: #e0e0e0;
+            font-weight: 500;
+        }
+
+        /* Lists */
+        ol, ul {
+            margin-bottom: 20px;
+            padding-left: 24px;
+        }
+
+        li {
+            margin-bottom: 10px;
+        }
+
+        li ul, li ol {
+            margin-top: 10px;
+            margin-bottom: 10px;
+        }
+
+        /* Code */
+        code {
+            font-family: 'Fira Code', monospace;
+            font-size: 0.85em;
+            background: #1a1a1a;
+            padding: 2px 6px;
+            border-radius: 4px;
+            color: #d0d0d0;
+        }
+
+        pre {
+            background: #1a1a1a;
+            border: 1px solid #2a2a2a;
+            border-radius: 6px;
+            padding: 20px;
+            overflow-x: auto;
+            margin-bottom: 20px;
+        }
+
+        pre code {
+            background: none;
+            padding: 0;
+            font-size: 0.9rem;
+            line-height: 1.6;
+        }
+
+        /* Tables */
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 20px 0;
+            font-size: 0.9rem;
+        }
+
+        th {
+            text-align: left;
+            padding: 12px 16px;
+            background: #1a1a1a;
+            color: #a0a0a0;
+            font-weight: 500;
+            border-bottom: 1px solid #2a2a2a;
+        }
+
+        td {
+            padding: 12px 16px;
+            border-bottom: 1px solid #1a1a1a;
+            vertical-align: top;
+        }
+
+        /* Diagram */
+        .diagram {
+            background: #1a1a1a;
+            border: 1px solid #2a2a2a;
+            border-radius: 6px;
+            padding: 20px;
+            margin: 20px 0;
+            font-family: 'Fira Code', monospace;
+            font-size: 0.9rem;
+            color: #909090;
+            white-space: pre;
+            overflow-x: auto;
+        }
+
+        /* Tip boxes */
+        .tip {
+            background: #1a1a1a;
+            border-left: 3px solid #7dd3c0;
+            padding: 16px 20px;
+            margin: 20px 0;
+            border-radius: 0 6px 6px 0;
+        }
+
+        .tip p:last-child {
+            margin-bottom: 0;
+        }
+
+        /* Troubleshooting */
+        .troubleshoot {
+            margin: 16px 0;
+        }
+
+        .troubleshoot strong {
+            color: #e0e0e0;
+        }
+
+        .troubleshoot p {
+            margin-bottom: 4px;
+        }
+
+        .troubleshoot .solution {
+            color: #7dd3c0;
+            margin-left: 16px;
+        }
+
+        /* Horizontal rule */
+        hr {
+            border: none;
+            border-top: 1px solid #2a2a2a;
+            margin: 48px 0;
+        }
+
+        /* Footer */
+        footer {
+            margin-top: 80px;
+            padding-top: 40px;
+            border-top: 1px solid #2a2a2a;
+            text-align: center;
+            color: #505050;
+            font-size: 0.85rem;
+        }
+
+        footer a {
+            color: #606060;
+        }
+
+        /* Responsive */
+        @media (max-width: 600px) {
+            .container {
+                padding: 40px 20px 80px 20px;
+            }
+
+            h1 {
+                font-size: 2rem;
+            }
+
+            pre {
+                padding: 16px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Top Banner -->
+    <div class="top-banner">
+        <a href="https://w33s3.com" class="logo">w33s3</a>
+        <span class="project-title">FlowBoard</span>
+    </div>
+
+    <div class="container">
+        <header>
+            <a href="index.html" class="back-link">← Back to FlowBoard</a>
+            <h1>Quick Start Guide</h1>
+            <p class="subtitle">Get up and running with FlowBoard in minutes.</p>
+        </header>
+
+        <h2>Setup</h2>
+
+        <h3>1. Access FlowBoard</h3>
+        <p>Visit the live application at: <strong><a href="https://jweese001.github.io/flow-board/">https://jweese001.github.io/flow-board/</a></strong></p>
+
+        <h3>2. Configure API Keys</h3>
+        <p>Click <strong>Settings</strong> in the left sidebar to add your API keys:</p>
+        <table>
+            <tr><th>Provider</th><th>Where to Get Key</th></tr>
+            <tr><td>Google Gemini</td><td><a href="https://aistudio.google.com/apikey">Google AI Studio</a></td></tr>
+            <tr><td>fal.ai</td><td><a href="https://fal.ai/dashboard/keys">fal.ai Dashboard</a></td></tr>
+        </table>
+        <p>You need at least one API key to generate images.</p>
+
+        <hr>
+
+        <h2>Your First Scene</h2>
+
+        <h3>Step 1: Add a Character</h3>
+        <ol>
+            <li>Find <strong>Character</strong> in the left sidebar under "Add Nodes"</li>
+            <li>Click the <strong>+</strong> button to add it to the canvas</li>
+            <li>Click the node to select it</li>
+            <li>In the Properties panel (right side), fill in:
+                <ul>
+                    <li><strong>Name:</strong> "Detective Marcus Cole"</li>
+                    <li><strong>Description:</strong> "A weathered detective in his 50s, graying hair, worn trench coat, world-weary eyes"</li>
+                </ul>
+            </li>
+        </ol>
+
+        <h3>Step 2: Add a Setting</h3>
+        <ol>
+            <li>Add a <strong>Setting</strong> node from the sidebar</li>
+            <li>Configure:
+                <ul>
+                    <li><strong>Name:</strong> "City Streets"</li>
+                    <li><strong>Description:</strong> "Rain-slicked city streets at night, neon signs reflecting in puddles, 1940s urban atmosphere"</li>
+                </ul>
+            </li>
+        </ol>
+
+        <h3>Step 3: Add Style</h3>
+        <ol>
+            <li>Add a <strong>Style</strong> node</li>
+            <li>Configure:
+                <ul>
+                    <li><strong>Name:</strong> "Noir"</li>
+                    <li><strong>Description:</strong> "High contrast black and white, dramatic shadows, film noir cinematography, moody lighting"</li>
+                </ul>
+            </li>
+        </ol>
+
+        <h3>Step 4: Add Action</h3>
+        <ol>
+            <li>Add an <strong>Action</strong> node</li>
+            <li>Configure:
+                <ul>
+                    <li><strong>Description:</strong> "Standing under a streetlight, lighting a cigarette, watching the entrance to a jazz club across the street"</li>
+                </ul>
+            </li>
+        </ol>
+
+        <h3>Step 5: Add Output</h3>
+        <ol>
+            <li>Add an <strong>Output</strong> node</li>
+            <li>This is where you'll generate your image</li>
+        </ol>
+
+        <h3>Step 6: Connect Everything</h3>
+        <p>Drag from the <strong>right handle</strong> (output) of each node to the <strong>left handle</strong> (input) of the next:</p>
+        <div class="diagram">Character ─┐
+Setting ───┼──→ Action ──→ Output
+Style ─────┘</div>
+
+        <h3>Step 7: Generate</h3>
+        <ol>
+            <li>Click the Output node to select it</li>
+            <li>Add a <strong>Parameters</strong> node and connect it to Output (to the "config" handle)</li>
+            <li>Choose your model (Gemini or Flux)</li>
+            <li>Click <strong>Generate</strong> on the Output node</li>
+        </ol>
+
+        <hr>
+
+        <h2>Key Concepts</h2>
+
+        <h3>Pull-Based Assembly</h3>
+        <p>Only nodes <strong>connected</strong> to an Output contribute to the prompt. Unconnected nodes on the canvas are just available assets—they don't affect generation.</p>
+
+        <h3>Node Colors</h3>
+        <table>
+            <tr><th>Color</th><th>Node Type</th><th>Purpose</th></tr>
+            <tr><td>Blue</td><td>Character</td><td>Who</td></tr>
+            <tr><td>Green</td><td>Setting</td><td>Where</td></tr>
+            <tr><td>Purple</td><td>Style</td><td>How it looks</td></tr>
+            <tr><td>Amber</td><td>Prop</td><td>Consistent objects</td></tr>
+            <tr><td>Orange</td><td>Action</td><td>What's happening</td></tr>
+            <tr><td>Lime</td><td>Text</td><td>Dialogue & captions</td></tr>
+            <tr><td>Pink</td><td>Shot</td><td>Camera framing</td></tr>
+            <tr><td>Teal</td><td>Parameters</td><td>Generation settings</td></tr>
+            <tr><td>Rose</td><td>Negative</td><td>What to avoid</td></tr>
+            <tr><td>Red</td><td>Output</td><td>Generate image</td></tr>
+            <tr><td>Cyan</td><td>Reference</td><td>Import images</td></tr>
+            <tr><td>Indigo</td><td>Transform</td><td>Position/scale/rotate</td></tr>
+            <tr><td>Violet</td><td>Timeline</td><td>Animation control</td></tr>
+            <tr><td>Sky</td><td>Comp</td><td>Layer compositing</td></tr>
+            <tr><td>Emerald</td><td>Page</td><td>Comic layouts</td></tr>
+        </table>
+
+        <h3>Grouping Nodes</h3>
+        <p>Select multiple nodes and press <strong>Cmd+G</strong> (Mac) or <strong>Ctrl+G</strong> (Windows) to group them. Groups move together and display a labeled bounding box.</p>
+        <p>Press <strong>Cmd+Shift+G</strong> to ungroup.</p>
+
+        <h3>Isolation Mode</h3>
+        <p>Double-click a group's border to <strong>isolate</strong> it—other nodes fade out so you can focus. Press <strong>Escape</strong> or double-click again to exit.</p>
+
+        <hr>
+
+        <h2>Building a Comic Page</h2>
+
+        <h3>1. Create Multiple Scenes</h3>
+        <p>Build several complete node trees, each ending in an Output node. Generate an image for each.</p>
+
+        <h3>2. Add a Page Node</h3>
+        <p>Add a <strong>Page</strong> node from the sidebar.</p>
+
+        <h3>3. Connect Outputs to Page</h3>
+        <p>Wire each Output node to a panel slot on the Page node. The Page shows a preview of your layout.</p>
+
+        <h3>4. Configure Layout</h3>
+        <p>In the Page properties:</p>
+        <ul>
+            <li>Choose a preset layout (2-up, 4-up, manga styles, etc.)</li>
+            <li>Or enable "Use Num Grid" for custom panel counts</li>
+            <li>Adjust gutter spacing</li>
+            <li>Set output dimensions</li>
+        </ul>
+
+        <h3>5. Export</h3>
+        <p>Click <strong>Export Page</strong> to download your composed comic page as a PNG.</p>
+
+        <hr>
+
+        <h2>Animation Basics</h2>
+        <p>FlowBoard can animate your generated images using the <strong>Timeline</strong> and <strong>Transform</strong> nodes.</p>
+
+        <h3>Creating an Animation</h3>
+
+        <h4>Step 1: Set Up Your Image</h4>
+        <p>Start with an image you want to animate:</p>
+        <ul>
+            <li>Generate an image using an Output node, OR</li>
+            <li>Import an existing image using a <strong>Reference</strong> node</li>
+        </ul>
+
+        <h4>Step 2: Add a Transform Node</h4>
+        <ol>
+            <li>Add a <strong>Transform</strong> node from the Animation section in the sidebar</li>
+            <li>Connect your image source (Output or Reference) to the Transform's input</li>
+            <li>The Transform controls: <strong>Scale</strong>, <strong>Offset X/Y</strong>, <strong>Rotation</strong>, and <strong>Opacity</strong></li>
+        </ol>
+
+        <h4>Step 3: Add a Timeline Node</h4>
+        <ol>
+            <li>Add a <strong>Timeline</strong> node</li>
+            <li>Connect the Timeline's output to the Transform's "timeline-in" handle</li>
+            <li>Configure the Timeline:
+                <ul>
+                    <li><strong>FPS:</strong> 24, 30, or 60 frames per second</li>
+                    <li><strong>Duration:</strong> Length in seconds</li>
+                    <li><strong>Easing:</strong> How keyframes interpolate</li>
+                </ul>
+            </li>
+        </ol>
+
+        <h4>Step 4: Add Keyframes</h4>
+        <ol>
+            <li>Check the Transform in the Timeline's "TRANSFORMS" list</li>
+            <li>Set the playhead to time 0s</li>
+            <li>Adjust the Transform values (e.g., Scale = 1.0)</li>
+            <li>Click <strong>+ Add</strong> to add a keyframe</li>
+            <li>Move playhead to end (e.g., 1.0s)</li>
+            <li>Change Transform values (e.g., Scale = 1.2)</li>
+            <li>Click <strong>+ Add</strong> again</li>
+        </ol>
+
+        <h4>Step 5: Preview & Export</h4>
+        <p>Click the <strong>Play</strong> button on the Timeline to preview. Click <strong>Export Frames</strong> to download a ZIP of PNG frames.</p>
+
+        <p>Convert to video using ffmpeg:</p>
+        <pre><code>ffmpeg -framerate 30 -i frames/frame_%05d.png -c:v libx264 -pix_fmt yuv420p output.mp4</code></pre>
+
+        <hr>
+
+        <h2>Compositing with Comp Node</h2>
+        <p>The <strong>Comp</strong> node layers multiple images together, perfect for parallax effects or compositing characters over backgrounds.</p>
+
+        <h3>Layer Order (back to front)</h3>
+        <table>
+            <tr><th>Handle</th><th>Layer</th><th>Typical Use</th></tr>
+            <tr><td>back</td><td>Background</td><td>Sky, distant scenery</td></tr>
+            <tr><td>mid</td><td>Midground</td><td>Main environment</td></tr>
+            <tr><td>fore</td><td>Foreground</td><td>Characters, main subjects</td></tr>
+            <tr><td>ext</td><td>Extension</td><td>Overlays, effects</td></tr>
+        </table>
+
+        <div class="tip">
+            <p><strong>Tip:</strong> Connect each layer through its own Transform node, then connect all Transforms to the same Timeline. This enables parallax scrolling, independent character animation, and zoom effects.</p>
+        </div>
+
+        <hr>
+
+        <h2>Keyboard Shortcuts</h2>
+        <table>
+            <tr><th>Shortcut</th><th>Action</th></tr>
+            <tr><td>Cmd+G</td><td>Group selected nodes</td></tr>
+            <tr><td>Cmd+Shift+G</td><td>Ungroup</td></tr>
+            <tr><td>Cmd+C</td><td>Copy selected nodes</td></tr>
+            <tr><td>Cmd+V</td><td>Paste</td></tr>
+            <tr><td>Cmd+S</td><td>Save project</td></tr>
+            <tr><td>Escape</td><td>Exit isolation mode</td></tr>
+            <tr><td>Delete/Backspace</td><td>Delete selected nodes</td></tr>
+        </table>
+
+        <hr>
+
+        <h2>Troubleshooting</h2>
+
+        <div class="troubleshoot">
+            <p><strong>"API key not configured"</strong></p>
+            <p class="solution">→ Go to Settings and add your API key for the model you're trying to use</p>
+        </div>
+
+        <div class="troubleshoot">
+            <p><strong>Wire connects to wrong spot</strong></p>
+            <p class="solution">→ If you changed a Page node's panel count, the handles may need to refresh. Try deselecting and reselecting the node.</p>
+        </div>
+
+        <div class="troubleshoot">
+            <p><strong>Image not appearing in Page</strong></p>
+            <p class="solution">→ Make sure the Output node has a generated image (shows in the Output preview) before connecting to Page</p>
+        </div>
+
+        <hr>
+
+        <h2>Tips</h2>
+        <ul>
+            <li><strong>Reuse Assets</strong> — The same Character node can connect to multiple Action nodes for different scenes</li>
+            <li><strong>Collapse Nodes</strong> — Click the chevron in a node header to collapse it and save space</li>
+            <li><strong>Copy/Paste</strong> — Select nodes and use Cmd+C / Cmd+V to duplicate</li>
+            <li><strong>Save Often</strong> — Click Save in the top bar, or use Cmd+S</li>
+            <li><strong>Try Different Models</strong> — Gemini and Flux have different strengths; experiment</li>
+        </ul>
+
+        <footer>
+            <p>FlowBoard — A <a href="https://w33s3.com">w33s3.com</a> project</p>
+            <p style="margin-top: 12px;">© 2025 w33s3.com. All content on this page is proprietary.</p>
+        </footer>
+    </div>
+</body>
+</html>
